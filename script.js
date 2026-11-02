@@ -1,34 +1,4 @@
-// The Well Loved Finds portfolio: filters, video dialog, copy email.
-
-const filterButtons = [...document.querySelectorAll('.filter')];
-const workCards = [...document.querySelectorAll('.work-grid .card')];
-const filterCount = document.querySelector('#filter-count');
-
-function updateCount(filter, label) {
-  const visible = workCards.filter((card) => !card.classList.contains('is-hidden')).length;
-  const noun = visible === 1 ? 'project' : 'projects';
-  filterCount.textContent = filter === 'all'
-    ? `${visible} selected ${noun}`
-    : `${visible} ${label.toLowerCase()} ${noun}`;
-}
-
-filterButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const filter = button.dataset.filter;
-    filterButtons.forEach((item) => {
-      const active = item === button;
-      item.classList.toggle('is-active', active);
-      item.setAttribute('aria-pressed', String(active));
-    });
-    workCards.forEach((card) => {
-      const matches = filter === 'all' || card.dataset.category.split(' ').includes(filter);
-      card.classList.toggle('is-hidden', !matches);
-    });
-    updateCount(filter, button.textContent.trim());
-  });
-});
-
-if (filterCount) updateCount('all', 'All');
+// The Well Loved Finds portfolio: video dialog, copy email.
 
 const dialog = document.querySelector('#video-dialog');
 const dialogVideo = document.querySelector('#dialog-video');
