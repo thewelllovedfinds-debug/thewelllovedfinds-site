@@ -1,4 +1,4 @@
-// The Well Loved Finds portfolio: video dialog, copy email.
+// Pretty Lived In portfolio: video dialog, copy email.
 
 const dialog = document.querySelector('#video-dialog');
 const dialogVideo = document.querySelector('#dialog-video');
